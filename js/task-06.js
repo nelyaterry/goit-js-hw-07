@@ -9,14 +9,17 @@
 
 const inputElem = document.querySelector('#validation-input');
 
+const changeClass = (addClass, removeClass) => {
+    inputElem.classList.add(addClass);
+    inputElem.classList.remove(removeClass);
+}
+
 
 inputElem.addEventListener("blur", () => {
     if (inputElem.value.length === Number(inputElem.dataset.length)) {
-        inputElem.classList.add('valid');
-        inputElem.classList.remove('invalid');
+        changeClass('valid', 'invalid'); 
     } else {
-    inputElem.classList.add('invalid');
-    inputElem.classList.remove('valid');    
+        changeClass('invalid', 'valid');  
     }
 });
 
